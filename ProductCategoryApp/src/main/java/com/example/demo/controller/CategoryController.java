@@ -27,14 +27,14 @@ public class CategoryController {
 	@Autowired
 	CategoryService categoryserve;
 
-	@PostMapping("/")
+	@PostMapping
 	public String AddCategories(@RequestBody Category category) {
 		// TODO: process POST request
 		Category c = categoryserve.addcategory(category);
 		return c != null ? "Category Added" : "category not added";
 	}
 
-	@GetMapping("/")
+	@GetMapping
 	public Page<Category> getCategories(@RequestParam(defaultValue = "0") int page,
 			@RequestParam(defaultValue = "10") int size) {
 		return categoryserve.getCategories(page, size);

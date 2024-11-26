@@ -30,13 +30,13 @@ public class ProductController {
            @Autowired
            ProductService productserve;
            
-           @PostMapping("/")
+           @PostMapping
            public String saveProducts(@RequestBody Product product) {
                //TODO: process POST request
               
                return productserve.saveProduct(product);
            }
-           @GetMapping("/")
+           @GetMapping
            public Page<Product> getAllproducts(
                @RequestParam(defaultValue = "0") int page,
                @RequestParam(defaultValue = "10") int size
